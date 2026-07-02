@@ -40,7 +40,13 @@ app.use(express.urlencoded({ extended: true }));
 
 // Static folter for uploads
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
+// Home route
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "AI Learning Assistant Backend is running 🚀",
+  });
+});
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/documents", documentRoutes);
